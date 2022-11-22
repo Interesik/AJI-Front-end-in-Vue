@@ -1,16 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <WyszukiwanieFilmow @submit="submited" />
+  <TableaZfilmami :attr = "this.sub"/>
+  <div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TableaZfilmami from './components/TableaZfilmami.vue';
+import WyszukiwanieFilmow from './components/WyszukiwanieFilmow.vue'
 
 export default {
-  name: 'App',
+  data(){
+    return{
+      sub : [],
+    }
+  },
   components: {
-    HelloWorld
+    WyszukiwanieFilmow,
+    TableaZfilmami
+  },
+  methods: {
+    submited(n) {
+      this.sub = n 
+    }
   }
+  
 }
 </script>
 
@@ -19,7 +33,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
