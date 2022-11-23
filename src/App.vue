@@ -1,11 +1,13 @@
 <template>
   <WyszukiwanieFilmow @submit="submited" />
   <TableaZfilmami :attr = "this.sub"/>
+  <FilmyWgGatunku></FilmyWgGatunku>
   <div>
   </div>
 </template>
 
 <script>
+import FilmyWgGatunku from './components/FilmyWgGatunku.vue';
 import TableaZfilmami from './components/TableaZfilmami.vue';
 import WyszukiwanieFilmow from './components/WyszukiwanieFilmow.vue'
 
@@ -17,8 +19,9 @@ export default {
   },
   components: {
     WyszukiwanieFilmow,
-    TableaZfilmami
-  },
+    TableaZfilmami,
+    FilmyWgGatunku
+},
   methods: {
     submited(n) {
       this.sub = n 
