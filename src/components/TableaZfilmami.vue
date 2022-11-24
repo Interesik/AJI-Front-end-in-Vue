@@ -14,7 +14,10 @@
                     <td>{{mov.genres}}</td>
                 </tr>
         </table>
-      <button  class="btn btn-primary mb-3" @click="Dodaj">Zobacz więcej</button>
+      <div>
+        <button  class="btn btn-primary mb-3" @click="Dodaj">Zobacz więcej</button>
+        <button  class="btn btn-primary mb-3" @click="Resetuj">Resetuj do 10</button>
+      </div>
       <p>Teraz: {{number}}</p>
     </div>
   </template>
@@ -33,6 +36,9 @@
         Dodaj() {
             this.number += 10;
         },
+        Resetuj() {
+          this.number = 10;
+        },
         filtedMovies(m) {
             if(!this.attr[0] && !this.attr[2] && !this.attr[3] && !this.attr[4] && !this.attr[1]){
                 return []
@@ -40,8 +46,8 @@
             else{
             return _.filter(m, (movie) => {
                 if((this.attr[2] ? _.find(movie.cast,(c)=>c.toLowerCase().includes(this.attr[2].toLowerCase())) : true) &&
-                (this.attr[0] ? movie.title.toLowerCase().includes(this.attr[0] ) : true) &&
-                (this.attr[3] ? _.find(movie.genres,(c)=>c.toLowerCase().includes(this.attr[3])) : true) &&
+                (this.attr[0] ? movie.title.toLowerCase().includes(this.attr[0].toLowerCase()) : true) &&
+                (this.attr[3] ? _.find(movie.genres,(c)=>c.toLowerCase().includes(this.attr[3].toLowerCase())) : true) &&
                 ((this.attr[1] ? movie.year > this.attr[1]-1 : true) && (this.attr[4] ? movie.year < this.attr[4]+1 : true)))
                 {
                 return movie

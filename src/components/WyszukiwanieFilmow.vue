@@ -3,14 +3,14 @@
     <h1>Baza fimów</h1>
     <form>
       <div v-for="(keys,index) in mov" :key="keys.Object" >
-        <div class="form-group" v-if="keys!='year'">
-          <label class="input-text">{{keys}} : </label>
+        <div class="input-group mb-3" v-if="keys!='year'">
+          <label class="input-group-text" :style="'text-transform: capitalize;'">{{keys}} : </label>
           <input class="form-control" v-model="attr[index]"/>
         </div>
-        <div class="input-group" v-else >
-          <label class="input-text" >Form {{keys}} : </label>
+        <div class="input-group mb-3" v-else >
+          <label class="input-group-text" >Form {{keys}} : </label>
           <input class="form-control" type="number" min="1900" v-model="attr[index]"/>
-          <label class="input-text" >To {{keys}} : </label>
+          <label class="input-group-text" >To {{keys}} : </label>
           <input class="form-control" type="number" min="1900" max="2022" v-model="attr[index+3]"/>
         </div>
       </div>

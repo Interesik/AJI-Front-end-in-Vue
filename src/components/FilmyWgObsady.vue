@@ -1,6 +1,6 @@
 <template>
     <button class="btn btn-primary mb-3" @click="hidden">Pokaż/schowaj liste z obsadom</button>
-    <div v-show="hidde">
+    <div v-if="hidde">
       <div v-for="(name,index) in getAllActors(movs)" :key="index">
           <p> {{name}} </p>
           <ol>
